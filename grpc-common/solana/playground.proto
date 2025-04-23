@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package playground;
+
+option go_package = "./playground";
+
+service Playground {
+  rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse);
+  rpc Transfer(TransferRequest) returns (TransferResponse);
+  rpc Airdrop(AirdropRequest) returns (AirdropResponse);
+}
+
+message GetBalanceRequest {
+  string address = 1;
+}
+
+message GetBalanceResponse {
+  double balance = 1;
+  string error = 2;
+}
+
+message TransferRequest {
+  string from_address = 1;
+  string to_address = 2;
+  double amount = 3;
+  string private_key = 4;
+}
+
+message TransferResponse {
+  string signature = 1;
+  string error = 2;
+}
+
+message AirdropRequest {
+  string address = 1;
+  double amount = 2;
+}
+
+message AirdropResponse {
+  string signature = 1;
+  string error = 2;
+} 

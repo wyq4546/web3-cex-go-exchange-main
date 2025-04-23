@@ -1,0 +1,6 @@
+Name: playground.rpc
+ListenOn: 0.0.0.0:8082
+Etcd:
+  Hosts:
+  - etcd3:2379
+  Key: playground.rpc
